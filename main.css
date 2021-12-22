@@ -1,0 +1,374 @@
+/* import here */
+
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
+
+/* ------------------- */
+
+
+/* Custom properties   */
+
+
+/* ------------------- */
+
+:root {
+    /* colors */
+    --grayish-blue: 237 18% 59%;
+    --soft-red: 345 95% 68%;
+    --white: 0 0% 100%;
+    --dark-desaturated-blue: 236 21% 26%;
+    --very-dark-blue: 235 16% 14%;
+    --very-dark-black-blue: 234 17% 12%;
+    /* font-sizes */
+    --fs-700: 3.5rem;
+    --fs-400: 1.125rem;
+    /* font-families */
+}
+
+
+/* ------------------- */
+
+
+/* Reset               */
+
+
+/* ------------------- */
+
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
+
+
+/* Box sizing */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* Reset margins */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+    margin: 0;
+}
+
+
+/* set up the body */
+
+body,
+html {
+    position: relative;
+    line-height: 1.5;
+    font-size: 13px;
+    min-height: 100vh;
+    font-family: 'Red Hat Text', sans-serif;
+    overflow: hidden;
+}
+
+
+/* make images easier to work with */
+
+img,
+picutre {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* make form elements easier to work with */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* remove animations for people who've turned them off */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ------------------- */
+
+
+/* Utility classes     */
+
+
+/* ------------------- */
+
+
+/* general */
+
+.flex {
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.grid {
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+.container {
+    padding-inline: 2em;
+    margin-inline: auto;
+    max-width: 80rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    /* added line */
+    border: 0;
+}
+
+.fs-400 {
+    font-size: var(--fs-400);
+}
+
+.fs-700 {
+    font-size: var(--fs-700);
+}
+
+.text-bold {
+    text-transform: uppercase;
+}
+
+.white-space {
+    letter-spacing: 2px;
+}
+
+.white-bg {
+    background-color: hsl(var(--white));
+}
+
+.white-clr {
+    color: hsl(var(--white));
+}
+
+.soft-red-clr {
+    color: hsl(var(--soft-red));
+}
+
+.soft-red-bg {
+    background-color: hsl(var(--soft-red));
+}
+
+.grayish-blue-clr {
+    color: hsl(var(--grayish-blue));
+}
+
+.grayish-blue-bg {
+    background-color: hsl(var(--grayish-blue));
+}
+
+.dark-desaturated-blue-clr {
+    color: hsl(var(--dark-desaturated-blue));
+}
+
+.dark-desaturated-blue-bg {
+    background-color: hsl(var(--dark-desaturated-blue));
+}
+
+.very-dark-blue-clr {
+    color: hsl(var(--very-dark-blue));
+}
+
+.very-dark-blue-bg {
+    background-color: hsl(var(--very-dark-blue));
+}
+
+.very-dark-blue-black-bg {
+    background-color: hsl(var(--very-dark-black-blue));
+}
+
+.very-dark-blue-black-clr {
+    color: hsl(var(--very-dark-black-blue));
+}
+
+.opacity {
+    opacity: 0.5;
+}
+
+
+/* Component */
+
+.clock {
+    justify-content: space-evenly;
+    --gap: 5px;
+    padding-block: 2rem;
+}
+
+.container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.container p {
+    padding-top: 1rem;
+    --fs-400: 0.7rem;
+}
+
+.top,
+.bottom {
+    height: 3rem;
+    width: 6rem;
+    border-radius: 5px;
+}
+
+.bottom {
+    box-shadow: 0px 15px 0.9px hsl(var(--very-dark-black-blue) /0.8);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+    z-index: 1;
+}
+
+.display {
+    position: absolute;
+    font-size: 3rem;
+    left: 20%;
+    top: 15%;
+}
+
+.card::before,
+.card::after {
+    content: '';
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: #1A1823;
+    z-index: 2;
+}
+
+.card::before {
+    left: -0.625rem;
+    top: 2.5rem;
+}
+
+.card::after {
+    right: -0.625rem;
+    top: 2.5rem;
+}
+
+header {
+    --fs-700: 1.6rem;
+}
+
+@media (min-width: 32rem) {
+    body,
+    html {
+        font-size: 16px;
+    }
+    .white-space {
+        letter-spacing: 5px;
+    }
+    header {
+        --fs-700: 2rem;
+    }
+    .clock {
+        --gap: 0.8rem;
+    }
+    .top,
+    .bottom {
+        height: 100px;
+        width: 202px;
+        border-radius: 10px;
+    }
+    .card::before,
+    .card::after {
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background-color: #1A1823;
+        z-index: 2;
+    }
+    .card::before {
+        left: -10px;
+        top: 92px;
+    }
+    .card::after {
+        right: -10px;
+        top: 92px;
+    }
+    .display {
+        position: absolute;
+        font-size: 6rem;
+        left: 42px;
+        top: 28px;
+    }
+    .container p {
+        --fs-400: 1.2rem;
+    }
+}
+
+.social-link>* {
+    color: hsl(var(--grayish-blue));
+}
+
+.social-link>*:hover {
+    color: hsl(var(--soft-red));
+}
+
+footer,
+header {
+    justify-content: center;
+}
+
+.main-body {
+    place-content: center;
+}
+
+
+/* body background */
+
+body {
+    background-image: url(./images/pattern-hills.svg), url(./images/bg-stars.svg);
+    background-repeat: no-repeat;
+    background-color: #1A1823;
+    background-position: bottom, top;
+    background-size: 100%;
+}
+
+@media (min-width: 32rem) {
+    body {
+        background-image: url(./images/pattern-hills.svg), url(./images/bg-stars.svg);
+        background-repeat: no-repeat;
+        background-color: #1A1823;
+        background-position: bottom, top;
+        background-size: 100%;
+    }
+}
